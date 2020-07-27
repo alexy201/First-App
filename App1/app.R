@@ -11,33 +11,17 @@ library(shiny)
 
 # Define UI for app that draws a histogram ----
 ui <- fluidPage(
-    titlePanel(h1("My Shiny App")),
+    titlePanel(h1("censusVis")),
     sidebarLayout(
         sidebarPanel(
-            h1("Installation"),
-            p(style = "color:black", "Shiny is available on CRAN, so you can install it in the usual way from your R console: "),
-            code("install.packages(\"shiny\")"),
-            br(),
-            br(),
-            br(),
-            img(src = "rstudio.png", height = 70, width = 200),
-            br(),
-            br(),
-            p(style = "color:black", "Shiny is a product of ", a("RStudio", href = "http://www.rstudio.com", style = "color:blue")),
+            helpText("Create demographic maps with information from the 2010 US Census."),
+            selectInput("var", label = "Choose a variable to display", 
+                        choices = list("Percent White" = 1, "Percent Black" = 2,
+                                       "Percent Hispanic" = 3, "Percent Asian" = 4), selected = 1),
+            sliderInput("range", h3("Range of Interest"), min = 0, max = 100, value = c(0, 100)),
         ),
         mainPanel(
-            h1("Intoducing Shiny"),
-            p(style = "color:black", "Shiny is a new package from RStudio that makes it ", span(em("incredibly easy")), "to build interactive web
-              applications with R."),
-            br(),
-            p(style = "color:black", "For an introduction and live examples, visit the ",
-              a("Shiny homepage.", href = "http://shiny.rstudio.com")),
-            br(),
-            h1("Features"),
-            p("- Build useful web applications with only a few lines of code—no Javascipt required.", style = "color:black"),
-            p(style = "color:black", "- Shiny applications are automatically 'live' in the same way that ",
-              strong("spreadsheets "), "are live. Outputs change instantly as users
-              modify inputs, without requiring a reload of the browser."),
+            
         )
     )
 )
