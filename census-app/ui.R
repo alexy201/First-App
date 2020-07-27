@@ -32,8 +32,7 @@ shinyUI(fluidPage(
         ),
         
         mainPanel(
-            textOutput("selected_var"),
-            textOutput("selected_range")
+            plotOutput("map")
         )
     )
     )
