@@ -11,31 +11,33 @@ library(shiny)
 
 # Define UI for app that draws a histogram ----
 ui <- fluidPage(
-    
-    # App title ----
-    titlePanel("Hello World!"),
-    
-    # Sidebar layout with input and output definitions ----
+    titlePanel(h1("My Shiny App")),
     sidebarLayout(
-        
-        # Sidebar panel for inputs ----
         sidebarPanel(
-            
-            # Input: Slider for the number of bins ----
-            sliderInput(inputId = "bins",
-                        label = "Number of bins:",
-                        min = 5,
-                        max = 50,
-                        value = 30)
-            
+            h1("Installation"),
+            p("Shiny is available on CRAN, so you can install it in the usual way from your R console: "),
+            code("install.packages(\"shiny\")"),
+            br(),
+            br(),
+            br(),
+            img(src = "rstudio.png", height = 70, width = 200),
+            br(),
+            br(),
+            p("Shiny is a product of ", a("RStudio", href = "http://www.rstudio.com", style = "color:blue")),
         ),
-        
-        # Main panel for displaying outputs ----
         mainPanel(
-            
-            # Output: Histogram ----
-            plotOutput(outputId = "distPlot")
-            
+            h1("Intoducing Shiny"),
+            p("Shiny is a new package from RStudio that makes it ", span(em("incredibly easy")), "to build interactive web
+              applications with R.", style = "color:black"),
+            br(),
+            p("For an introduction and live examples, visit the ", style = "color:black",
+              a("Shiny homepage.", href = "http://shiny.rstudio.com")),
+            br(),
+            h1("Features"),
+            p("- Build useful web applications with only a few lines of code—no Javascipt required.", style = "color:black"),
+            p(style = "color:black", "- Shiny applications are automatically 'live' in the same way that ",
+              strong("spreadsheets "), "are live. Outputs change instantly as users
+              modify inputs, without requiring a reload of the browser."),
         )
     )
 )
